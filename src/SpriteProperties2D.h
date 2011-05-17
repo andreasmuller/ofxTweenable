@@ -12,7 +12,7 @@
 #define _A_SPRITE_PROPERTIES_2D_H
 
 #include "ofMain.h"
-#include "../Color/AColor.h"
+//#include "../Color/AColor.h"
 
 class SpriteProperties2D
 {
@@ -28,7 +28,8 @@ class SpriteProperties2D
 	
 		float alpha;
 	
-		AColor color;
+		//AColor color;
+		ofPoint color;	
 };
 
 

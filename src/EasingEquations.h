@@ -1,7 +1,6 @@
 
 
-#ifndef __A_EASING_EQUATIONS_H
-#define __A_EASING_EQUATIONS_H
+#pragma once
 
 // taken largely from Robert Penners easing equations
 
@@ -11,64 +10,66 @@
 
 #include <cmath>
 
-enum AEaseType
-{
-	EASE_LINEAR = 0,
 
-	EASE_IN_QUAD,
-	EASE_OUT_QUAD,
-	EASE_INOUT_QUAD,
-
-	EASE_IN_CUBIC,
-	EASE_OUT_CUBIC,
-	EASE_INOUT_CUBIC,
-
-	EASE_IN_QUART,
-	EASE_OUT_QUART,
-	EASE_INOUT_QUART,
-
-	EASE_IN_QUINT,
-	EASE_OUT_QUINT,
-	EASE_INOUT_QUINT,
-
-	EASE_IN_SINE,
-	EASE_OUT_SINE,
-	EASE_INOUT_SINE,
-
-	EASE_IN_EXPO,
-	EASE_OUT_EXPO,
-	EASE_INOUT_EXPO,
-
-	EASE_IN_CIRCULAR,
-	EASE_OUT_CIRCULAR,
-	EASE_INOUT_CIRCULAR,
-
-	EASE_IN_ELASTIC,
-	EASE_OUT_ELASTIC,
-	EASE_INOUT_ELASTIC,
-
-	EASE_IN_BACK,
-	EASE_OUT_BACK,
-	EASE_INOUT_BACK,
-
-	EASE_IN_BOUNCE,
-	EASE_OUT_BOUNCE,
-	EASE_INOUT_BOUNCE
-
-};
 
 #define EASE_MODE_FIRST		EASE_LINEAR
 #define EASE_MODE_LAST		EASE_INOUT_BOUNCE
 #define EASE_MODE_AMOUNT	( EASE_MODE_LAST - EASE_MODE_FIRST + 1)
 
-class AEasingEquations
+class EasingEquations
 {
 
 public:
 
+	enum EaseType
+	{
+		EASE_LINEAR = 0,
+		
+		EASE_IN_QUAD,
+		EASE_OUT_QUAD,
+		EASE_INOUT_QUAD,
+		
+		EASE_IN_CUBIC,
+		EASE_OUT_CUBIC,
+		EASE_INOUT_CUBIC,
+		
+		EASE_IN_QUART,
+		EASE_OUT_QUART,
+		EASE_INOUT_QUART,
+		
+		EASE_IN_QUINT,
+		EASE_OUT_QUINT,
+		EASE_INOUT_QUINT,
+		
+		EASE_IN_SINE,
+		EASE_OUT_SINE,
+		EASE_INOUT_SINE,
+		
+		EASE_IN_EXPO,
+		EASE_OUT_EXPO,
+		EASE_INOUT_EXPO,
+		
+		EASE_IN_CIRCULAR,
+		EASE_OUT_CIRCULAR,
+		EASE_INOUT_CIRCULAR,
+		
+		EASE_IN_ELASTIC,
+		EASE_OUT_ELASTIC,
+		EASE_INOUT_ELASTIC,
+		
+		EASE_IN_BACK,
+		EASE_OUT_BACK,
+		EASE_INOUT_BACK,
+		
+		EASE_IN_BOUNCE,
+		EASE_OUT_BOUNCE,
+		EASE_INOUT_BOUNCE
+		
+	};	
+	
 	static float getValueAtFrac( float _startVal, float _targetVal, float _frac );
 
-	static float ease( float t, AEaseType easeType = EASE_INOUT_QUAD );
+	static float ease( float t, EaseType easeType = EASE_INOUT_QUAD );
 
 	static float linearTween( float t, float b, float c, float d = 1.0f );
 
@@ -127,11 +128,10 @@ public:
 	static float easeOutBounce( float t, float b, float c, float d = 1.0f  );
 	static float easeInOutBounce( float t, float b, float c, float d = 1.0f  );
 
-
-	static AEaseType nextEaseType( AEaseType _type );
-	static AEaseType prevEaseType( AEaseType _type );
-
+	static EaseType nextEaseType( EaseType _type );
+	static EaseType prevEaseType( EaseType _type );
+	
+	
 };
 
 
-#endif

@@ -9,9 +9,10 @@
 #pragma once
 
 #include "TweenProperties.h"
-#include "../AOfTimer.h"
 
-#include "../../Math/Easing/AEasingEquations.h"
+#include "TweeningTimer.h"
+
+#include "EasingEquations.h"
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -24,11 +25,11 @@ class Tweenable1DValue
 	
 		void updateTweening();
 	
-		void tweenValueTo(	float _valueTarget,			float _timeSecs, AEaseType _easeType = EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f );		
+		void tweenValueTo(	float _valueTarget,	float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f );		
 	
 		float value;
 	
-		AOfTimer timer;
+		TweeningTimer timer;
 		TweenProperties1D valueTweenProps;		
 	
 };

@@ -40,7 +40,7 @@ void Tweenable1DValue::updateTweening()
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void Tweenable1DValue::tweenValueTo( float _valueTarget, float _timeSecs,  AEaseType _easeType, bool _backWhenDone, float _startDelay )
+void Tweenable1DValue::tweenValueTo( float _valueTarget, float _timeSecs,  EasingEquations::EaseType _easeType, bool _backWhenDone, float _startDelay )
 {
 	valueTweenProps.startTime = timer.elapsedSec() + _startDelay;
 	valueTweenProps.endTime = valueTweenProps.startTime + _timeSecs;

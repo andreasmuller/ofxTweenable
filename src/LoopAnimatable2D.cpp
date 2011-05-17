@@ -74,7 +74,7 @@ void LoopAnimatable2D::updateLoopAnimation()
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void LoopAnimatable2D::startSizeAnimationLoop( ofPoint* _start, ofPoint*_end, float _timeSecs, AEaseType _easeType, AEaseType _easeTypeBack )
+void LoopAnimatable2D::startSizeAnimationLoop( ofPoint* _start, ofPoint*_end, float _timeSecs, EasingEquations::EaseType _easeType, EasingEquations::EaseType _easeTypeBack )
 {
 	sizeAnimLoopProps.startTime = timer.elapsedSec();
 	sizeAnimLoopProps.endTime = sizeAnimLoopProps.startTime + _timeSecs;
@@ -99,7 +99,7 @@ void LoopAnimatable2D::startSizeAnimationLoop( ofPoint* _start, ofPoint*_end, fl
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void LoopAnimatable2D::startPosAnimationLoop( ofPoint* _start, ofPoint* _end, float _timeSecs, AEaseType _easeType, AEaseType _easeTypeBack )
+void LoopAnimatable2D::startPosAnimationLoop( ofPoint* _start, ofPoint* _end, float _timeSecs, EasingEquations::EaseType _easeType, EasingEquations::EaseType _easeTypeBack )
 {
 	posAnimLoopProps.startTime = timer.elapsedSec();
 	posAnimLoopProps.endTime = posAnimLoopProps.startTime + _timeSecs;
@@ -124,7 +124,7 @@ void LoopAnimatable2D::startPosAnimationLoop( ofPoint* _start, ofPoint* _end, fl
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void LoopAnimatable2D::startAlphaAnimationLoop( float _start, float _end, float _timeSecs, AEaseType _easeType, AEaseType _easeTypeBack )
+void LoopAnimatable2D::startAlphaAnimationLoop( float _start, float _end, float _timeSecs, EasingEquations::EaseType _easeType, EasingEquations::EaseType _easeTypeBack )
 {
 	alphaAnimLoopProps.startTime = timer.elapsedSec();
 	alphaAnimLoopProps.endTime = alphaAnimLoopProps.startTime + _timeSecs;

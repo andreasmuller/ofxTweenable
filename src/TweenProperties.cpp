@@ -10,4 +10,4 @@
 
 // These need to be declared in a .cpp file
 TweenDoneEventArgs TweenProperties::tweenDoneEventArgs;
-ofEvent<TweenDoneEventArgs> TweenProperties::tweenDoneEvent;	
+ofEvent<TweenDoneEventArgs> TweenProperties::tweenDoneEvent;

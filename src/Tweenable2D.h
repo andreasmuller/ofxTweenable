@@ -7,21 +7,17 @@
  *
  */
 
-#ifndef _A_TWEENABLE_2D_H
-#define _A_TWEENABLE_2D_H
-
-
+#pragma once
 
 #include "TweenProperties.h"
 
 #include "SpriteProperties2D.h"
 
-#include "../AOfTimer.h"
+#include "TweeningTimer.h"
 
-#include "../Color/AColorInterpolator.h"
+//#include "../Color/AColorInterpolator.h"
 
-//#include "../../Math/AngleMath.h"
-#include "../../Math/Easing/AEasingEquations.h"
+#include "EasingEquations.h"
 
 
 
@@ -36,18 +32,18 @@ class Tweenable2D : public virtual SpriteProperties2D
 	
 		void updateTweening();
 	
-		void tweenPosTo(	float _x, float _y,		float _timeSecs, AEaseType _easeType = EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
-		void tweenSizeTo(	float _w, float _h,		float _timeSecs, AEaseType _easeType = EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
-		void tweenAlphaTo(	float _alpha,			float _timeSecs, AEaseType _easeType = EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );		
-		void tweenAngleTo(	float _angle,			float _timeSecs, AEaseType _easeType = EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
-		void tweenColorTo(	AColor* _targetCol,		float _timeSecs, AEaseType _easeType = EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
+		void tweenPosTo(	float _x, float _y,		float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
+		void tweenSizeTo(	float _w, float _h,		float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
+		void tweenAlphaTo(	float _alpha,			float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );		
+		void tweenAngleTo(	float _angle,			float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
+		void tweenColorTo(	ofPoint* _targetCol,	float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
 
 		void enableAutoTweenUpdate();	
 		void disableAutoTweenUpdate();
 	
 		void _update(ofEventArgs &e);
 	
-		AOfTimer timer;
+		TweeningTimer timer;
 
 		TweenProperties2D posTweenProps;
 		TweenProperties2D sizeTweenProps;
@@ -55,16 +51,19 @@ class Tweenable2D : public virtual SpriteProperties2D
 		TweenProperties1D angleTweenProps;	
 		TweenProperties1D colorTweenProps;
 	
-		AColor startColor;
-		AColor endColor;	
-		AColorInterpolator colorInterpolator;	
+		
+		//AColor startColor;
+		//AColor endColor;
+		ofPoint startColor;
+		ofPoint endColor;	
+	
+		//AColorInterpolator colorInterpolator;	
 		float colorTweeningVal;
 			
 		int myID;
 	
 	private:
 		float getAngleDiff( float rot, float rotTarget);
+		void interpolateAlphaBlendingRGB( ofPoint* _startColor, ofPoint* _endColor, float _frac, ofPoint* _targetColor );
 };
 
-
-#endif //_A_TWEENABLE_2D_H

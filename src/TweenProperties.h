@@ -7,12 +7,11 @@
  *
  */
 
-#ifndef _A_TWEEN_PROPERTIES_H
-#define _A_TWEEN_PROPERTIES_H
+#pragma once
 
 #include "ofMain.h"
 
-#include "../../Math/Easing/AEasingEquations.h"
+#include "EasingEquations.h"
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -48,8 +47,8 @@ class TweenProperties
 			startTime = 0.0f;
 			endTime = 0.0f;	
 			
-			easeType = EASE_LINEAR;
-			easeTypeBack = EASE_LINEAR;				
+			easeType = EasingEquations::EASE_LINEAR;
+			easeTypeBack = EasingEquations::EASE_LINEAR;				
 			
 			backWhenDone = false;
 			fireEventWhenDone = false;
@@ -68,8 +67,8 @@ class TweenProperties
 		float startTime;
 		float endTime;
 		float tweenTime;	
-		AEaseType easeType;
-		AEaseType easeTypeBack;		
+		EasingEquations::EaseType easeType;
+		EasingEquations::EaseType easeTypeBack;		
 	
 		bool backWhenDone;	
 		bool fireEventWhenDone;	
@@ -118,14 +117,14 @@ class TweenProperties1D : public TweenProperties
 			return false; // not done yet
 		}
 		
-		void setVal( float _frac, AEaseType _easeType )
+		void setVal( float _frac, EasingEquations::EaseType _easeType )
 		{
-			_frac = AEasingEquations::ease( _frac, _easeType );			
+			_frac = EasingEquations::ease( _frac, _easeType );			
 			*targetValRef = startX + ((endX-startX) * _frac);		
 		}
 		
-		AEaseType easeType;
-		AEaseType easeTypeBack;	
+		EasingEquations::EaseType easeType;
+		EasingEquations::EaseType easeTypeBack;	
 		float startX;
 		float endX;
 		float* targetValRef;
@@ -181,9 +180,9 @@ class TweenProperties2D : public TweenProperties
 			return false;  // not done yet
 		}
 		
-		void setVal( float _frac, AEaseType _easeType )
+		void setVal( float _frac, EasingEquations::EaseType _easeType )
 		{
-			_frac = AEasingEquations::ease( _frac, _easeType );				
+			_frac = EasingEquations::ease( _frac, _easeType );				
 			*targetValXRef = startX + ((endX-startX) * _frac);
 			*targetValYRef = startY + ((endY-startY) * _frac);		
 		}		
@@ -197,7 +196,3 @@ class TweenProperties2D : public TweenProperties
 		float* targetValYRef;
 		
 };
-
-
-#endif //_A_TWEEN_PROPERTIES_H
-

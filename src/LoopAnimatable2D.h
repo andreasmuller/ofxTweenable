@@ -7,16 +7,15 @@
  *
  */
 
-#ifndef _A_LOOP_ANIMATABLE_2D_H
-#define _A_LOOP_ANIMATABLE_2D_H
+#pragma once
 
 #include "TweenProperties.h"
 
 #include "SpriteProperties2D.h"
 
-#include "../AOfTimer.h"
+#include "TweeningTimer.h"
 
-#include "../../Math/Easing/AEasingEquations.h"
+#include "EasingEquations.h"
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------
@@ -30,9 +29,9 @@ public:
 	
 	void updateLoopAnimation();
 	
-	void startSizeAnimationLoop( ofPoint* _start, ofPoint* _end, float _time, AEaseType _easeType = EASE_LINEAR, AEaseType _easeTypeBack = EASE_LINEAR );
-	void startPosAnimationLoop( ofPoint* _start, ofPoint* _end, float _time, AEaseType _easeType = EASE_LINEAR, AEaseType _easeTypeBack = EASE_LINEAR  );
-	void startAlphaAnimationLoop( float _start, float _end, float _time, AEaseType _easeType = EASE_LINEAR, AEaseType _easeTypeBack = EASE_LINEAR  );
+	void startSizeAnimationLoop( ofPoint* _start, ofPoint* _end, float _time, 	EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR );
+	void startPosAnimationLoop( ofPoint* _start, ofPoint* _end, float _time, 	EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR  );
+	void startAlphaAnimationLoop( float _start, float _end, float _time, 		EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR  );
 
 	
 	// Stop the looping animation
@@ -43,7 +42,7 @@ public:
 	
 	float timetoLoopingFraction( float _currTime, float _timespan, int* _direction );
 	
-	AOfTimer timer;
+	TweeningTimer timer;
 	
 	TweenProperties2D posAnimLoopProps;
 	TweenProperties2D sizeAnimLoopProps;
@@ -51,5 +50,3 @@ public:
 
 };
 
-
-#endif //_A_LOOP_ANIMATABLE_2D_H
