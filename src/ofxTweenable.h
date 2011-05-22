@@ -8,3 +8,4 @@
 
 #include "LoopAnimatable2D.h"
 #include "Tweenable2D.h"
+#include "Tweenable1DValue.h"

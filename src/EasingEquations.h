@@ -2,7 +2,7 @@
 
 #pragma once
 
-// taken largely from Robert Penners easing equations
+// Taken largely from Robert Penners easing equations
 
 #define EASE_PI		   3.1415926535897932384626433832795f
 #define EASE_TWOPI      6.283185307179586476925287f

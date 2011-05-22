@@ -29,9 +29,17 @@ public:
 	
 	void updateLoopAnimation();
 	
-	void startSizeAnimationLoop( ofPoint* _start, ofPoint* _end, float _time, 	EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR );
-	void startPosAnimationLoop( ofPoint* _start, ofPoint* _end, float _time, 	EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR  );
-	void startAlphaAnimationLoop( float _start, float _end, float _time, 		EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR  );
+	void startSizeAnimationLoop( ofPoint* _start, ofPoint* _end, float _time, 	
+								 EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+								EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR );
+	
+	void startPosAnimationLoop( ofPoint* _start, ofPoint* _end, float _time, 	
+							    EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+							    EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR  );
+	
+	void startAlphaAnimationLoop( float _start, float _end, float _time, 		
+								  EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+								  EasingEquations::EaseType _easeTypeBack = EasingEquations::EASE_LINEAR  );
 
 	
 	// Stop the looping animation

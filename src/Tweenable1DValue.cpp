@@ -80,4 +80,3 @@ void Tweenable1DValue::disableAutoTweenUpdate()
 {
 	ofRemoveListener(ofEvents.update, this, &Tweenable1DValue::_update);	
 }
-
