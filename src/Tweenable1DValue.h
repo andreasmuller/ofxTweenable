@@ -25,7 +25,14 @@ class Tweenable1DValue
 	
 		void updateTweening();
 	
-		void tweenValueTo(	float _valueTarget,	float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f );		
+		void tweenValueTo(	float _valueTarget,	float _timeSecs, 
+							EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+						    bool _backWhenDone = false, float _startDelay = 0.0f );		
+		
+		void _update(ofEventArgs &e);
+		
+		void enableAutoTweenUpdate();	
+		void disableAutoTweenUpdate();	
 	
 		float value;
 	

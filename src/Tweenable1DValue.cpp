@@ -14,6 +14,14 @@ Tweenable1DValue::Tweenable1DValue()
 {
 	value = 0.0f;
 	timer.start();
+	enableAutoTweenUpdate();	
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+//
+void Tweenable1DValue::_update(ofEventArgs &e)
+{
+	updateTweening();
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------
@@ -23,7 +31,6 @@ void Tweenable1DValue::updateTweening()
 	float tmpSec = timer.elapsedSec();
 	
 	
-	// Alpha
 	if( valueTweenProps.active ) 
 	{
 		valueTweenProps.update( tmpSec );
@@ -57,5 +64,20 @@ void Tweenable1DValue::tweenValueTo( float _valueTarget, float _timeSecs,  Easin
 	valueTweenProps.active = true;
 	
 	valueTweenProps.backWhenDone = _backWhenDone;
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+//
+void Tweenable1DValue::enableAutoTweenUpdate()
+{
+	ofAddListener(ofEvents.update, this, &Tweenable1DValue::_update);	
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+//
+void Tweenable1DValue::disableAutoTweenUpdate()
+{
+	ofRemoveListener(ofEvents.update, this, &Tweenable1DValue::_update);	
 }
 
