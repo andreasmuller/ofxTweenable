@@ -32,11 +32,26 @@ class Tweenable2D : public virtual SpriteProperties2D
 	
 		void updateTweening();
 	
-		void tweenPosTo(	float _x, float _y,		float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
-		void tweenSizeTo(	float _w, float _h,		float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
-		void tweenAlphaTo(	float _alpha,			float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );		
-		void tweenAngleTo(	float _angle,			float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
-		void tweenColorTo(	ofPoint* _targetCol,	float _timeSecs, EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
+		void tweenPosTo(	float _x, float _y,		float _timeSecs, 
+						    EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+							bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
+	
+		void tweenSizeTo(	float _w, float _h,		float _timeSecs, 
+						    EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+						    bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
+	
+	
+		void tweenAlphaTo(	float _alpha,			float _timeSecs, 
+						  	EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+						    bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );	
+	
+		void tweenAngleTo(	float _angle,			float _timeSecs, 
+						  	EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+						    bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
+	
+		void tweenColorTo(	ofPoint* _targetCol,	float _timeSecs, 
+						    EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
+						    bool _backWhenDone = false, float _startDelay = 0.0f, bool _fireEventWhenDone = false );
 
 		void enableAutoTweenUpdate();	
 		void disableAutoTweenUpdate();
