@@ -75,7 +75,7 @@ class Tweenable2D : public virtual SpriteProperties2D
 		//AColorInterpolator colorInterpolator;	
 		float colorTweeningVal;
 			
-		int myID;
+		int eventID;
 	
 	private:
 		float getAngleDiff( float rot, float rotTarget);

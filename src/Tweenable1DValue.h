@@ -27,7 +27,9 @@ class Tweenable1DValue
 	
 		void tweenValueTo(	float _valueTarget,	float _timeSecs, 
 							EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
-						    bool _backWhenDone = false, float _startDelay = 0.0f );		
+						    float _startDelay = 0.0f, 
+						    bool _backWhenDone = false,
+						    bool _fireEventWhenDone = false );		
 		
 		void _update(ofEventArgs &e);
 		
@@ -39,5 +41,6 @@ class Tweenable1DValue
 		TweeningTimer timer;
 		TweenProperties1D valueTweenProps;		
 	
+		int eventID;
 };
 

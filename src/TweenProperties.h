@@ -21,12 +21,12 @@ class TweenDoneEventArgs : public ofEventArgs
 	
 		TweenDoneEventArgs() 
 		{
-			myID = 0;
+			eventID = 0;
 			type = ANIM_NONE;
 		}
 	
-		int myID;
-		enum AnimType { ANIM_NONE, ANIM_POS, ANIM_SIZE, ANIM_ALPHA, ANIM_ANGLE, ANIM_COLOR };
+		int eventID;
+		enum AnimType { ANIM_NONE, ANIM_1D_VALUE, ANIM_POS, ANIM_SIZE, ANIM_ALPHA, ANIM_ANGLE, ANIM_COLOR };
 		
 		AnimType type;
 		
@@ -40,7 +40,7 @@ class TweenProperties
 	
 		TweenProperties()
 		{
-			myID = 0;
+			eventID = 0;
 			animType = TweenDoneEventArgs::ANIM_NONE;
 			
 			active = false;
@@ -59,7 +59,7 @@ class TweenProperties
 		static TweenDoneEventArgs tweenDoneEventArgs;
 		static ofEvent<TweenDoneEventArgs> tweenDoneEvent;	
 	
-		int myID;
+		int eventID;
 		TweenDoneEventArgs::AnimType animType;
 	
 		bool active;
@@ -100,7 +100,7 @@ class TweenProperties1D : public TweenProperties
 				
 				if( fireEventWhenDone && !backWhenDone )
 				{
-					TweenProperties::tweenDoneEventArgs.myID = myID;
+					TweenProperties::tweenDoneEventArgs.eventID = eventID;
 					TweenProperties::tweenDoneEventArgs.type = animType;
 					ofNotifyEvent( TweenProperties::tweenDoneEvent, TweenProperties::tweenDoneEventArgs );
 				}
@@ -164,7 +164,7 @@ class TweenProperties2D : public TweenProperties
 				
 				if( fireEventWhenDone && !backWhenDone )
 				{
-					TweenProperties::tweenDoneEventArgs.myID = myID;
+					TweenProperties::tweenDoneEventArgs.eventID = eventID;
 					TweenProperties::tweenDoneEventArgs.type = animType;
 					ofNotifyEvent( TweenProperties::tweenDoneEvent, TweenProperties::tweenDoneEventArgs );
 				}				

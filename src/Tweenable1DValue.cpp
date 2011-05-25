@@ -12,6 +12,7 @@
 //
 Tweenable1DValue::Tweenable1DValue()
 {
+	eventID = 0;
 	value = 0.0f;
 	timer.start();
 	enableAutoTweenUpdate();	
@@ -47,8 +48,11 @@ void Tweenable1DValue::updateTweening()
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void Tweenable1DValue::tweenValueTo( float _valueTarget, float _timeSecs,  EasingEquations::EaseType _easeType, bool _backWhenDone, float _startDelay )
+void Tweenable1DValue::tweenValueTo( float _valueTarget, float _timeSecs,  EasingEquations::EaseType _easeType, float _startDelay, bool _backWhenDone, bool _fireEventWhenDone )
 {
+	valueTweenProps.eventID = eventID;
+	valueTweenProps.animType = TweenDoneEventArgs::ANIM_1D_VALUE;
+	
 	valueTweenProps.startTime = timer.elapsedSec() + _startDelay;
 	valueTweenProps.endTime = valueTweenProps.startTime + _timeSecs;
 	
@@ -64,6 +68,8 @@ void Tweenable1DValue::tweenValueTo( float _valueTarget, float _timeSecs,  Easin
 	valueTweenProps.active = true;
 	
 	valueTweenProps.backWhenDone = _backWhenDone;
+	
+	valueTweenProps.fireEventWhenDone = _fireEventWhenDone;		
 }
 
 
