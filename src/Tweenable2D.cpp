@@ -15,9 +15,21 @@ Tweenable2D::Tweenable2D()
 {
 	myID = 0;
 	
+	// set some defaults
+	width  = 100.0f;
+	height = 100.0f;
+
+	angle = 0.0f;
+	
+	alpha = 1.0f;
+	
+	
 	timer.start();
 	enableAutoTweenUpdate();
 }
+
+
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -127,7 +139,7 @@ void Tweenable2D::updateTweening()
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void Tweenable2D::tweenPosTo( float _xTarget, float _yTarget, float _timeSecs, EasingEquations::EaseType _easeType, bool _backWhenDone, float _startDelay, bool _fireEventWhenDone )
+void Tweenable2D::tweenPosTo( float _xTarget, float _yTarget, float _timeSecs, EasingEquations::EaseType _easeType, float _startDelay, bool _backWhenDone, bool _fireEventWhenDone )
 {
 	posTweenProps.myID = myID;
 	posTweenProps.animType = TweenDoneEventArgs::ANIM_POS;
@@ -157,7 +169,7 @@ void Tweenable2D::tweenPosTo( float _xTarget, float _yTarget, float _timeSecs, E
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void Tweenable2D::tweenSizeTo( float _xTarget, float _yTarget, float _timeSecs,  EasingEquations::EaseType _easeType, bool _backWhenDone, float _startDelay, bool _fireEventWhenDone  )
+void Tweenable2D::tweenSizeTo( float _xTarget, float _yTarget, float _timeSecs,  EasingEquations::EaseType _easeType, float _startDelay, bool _backWhenDone, bool _fireEventWhenDone  )
 {
 	sizeTweenProps.myID = myID;
 	sizeTweenProps.animType = TweenDoneEventArgs::ANIM_SIZE;
@@ -187,7 +199,7 @@ void Tweenable2D::tweenSizeTo( float _xTarget, float _yTarget, float _timeSecs, 
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void Tweenable2D::tweenAlphaTo( float _alphaTarget, float _timeSecs,  EasingEquations::EaseType _easeType, bool _backWhenDone, float _startDelay, bool _fireEventWhenDone )
+void Tweenable2D::tweenAlphaTo( float _alphaTarget, float _timeSecs,  EasingEquations::EaseType _easeType, float _startDelay, bool _backWhenDone, bool _fireEventWhenDone )
 {
 	//cout << " Tweenable2D::tweenAlphaTo  _alphaTarget: " << _alphaTarget << "  _timeSecs: " << _timeSecs << "  _easeType: " << _easeType << endl; 
 
@@ -215,7 +227,7 @@ void Tweenable2D::tweenAlphaTo( float _alphaTarget, float _timeSecs,  EasingEqua
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void Tweenable2D::tweenAngleTo( float _angleTarget, float _timeSecs, EasingEquations::EaseType _easeType, bool _backWhenDone, float _startDelay, bool _fireEventWhenDone )
+void Tweenable2D::tweenAngleTo( float _angleTarget, float _timeSecs, EasingEquations::EaseType _easeType, float _startDelay, bool _backWhenDone, bool _fireEventWhenDone )
 {
 	angleTweenProps.myID = myID;
 	angleTweenProps.animType = TweenDoneEventArgs::ANIM_ANGLE;
@@ -245,7 +257,7 @@ void Tweenable2D::tweenAngleTo( float _angleTarget, float _timeSecs, EasingEquat
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
-void Tweenable2D::tweenColorTo(	ofPoint* _targetCol, float _timeSecs, EasingEquations::EaseType _easeType, bool _backWhenDone, float _startDelay, bool _fireEventWhenDone )
+void Tweenable2D::tweenColorTo(	ofPoint* _targetCol, float _timeSecs, EasingEquations::EaseType _easeType, float _startDelay, bool _backWhenDone, bool _fireEventWhenDone )
 {
 	colorTweenProps.myID = myID;
 	colorTweenProps.animType = TweenDoneEventArgs::ANIM_COLOR;
