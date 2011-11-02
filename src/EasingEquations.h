@@ -71,36 +71,36 @@ public:
 
 	static float ease( float t, EaseType easeType = EASE_INOUT_QUAD );
 
-	static float linearTween( float t, float b, float c, float d = 1.0f );
+	static float linearTween( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f );
 
-	static float easeInQuad( float t, float b, float c, float d = 1.0f  );
-	static float easeOutQuad( float t, float b, float c, float d = 1.0f  );
-	static float easeInOutQuad( float t, float b, float c, float d = 1.0f  );
+	static float easeInQuad( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeOutQuad( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeInOutQuad( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
 
-	static float easeInCubic( float t, float b, float c, float d = 1.0f  );
-	static float easeOutCubic( float t, float b, float c, float d = 1.0f  );
-	static float easeInOutCubic( float t, float b, float c, float d = 1.0f  );
+	static float easeInCubic( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeOutCubic( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeInOutCubic( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
 
-	static float easeInQuart( float t, float b, float c, float d  = 1.0f );
-	static float easeOutQuart( float t, float b, float c, float d = 1.0f  );
-	static float easeInOutQuart( float t, float b, float c, float d = 1.0f  );
+	static float easeInQuart( float t, float b = 0.0f, float c = 1.0f, float d  = 1.0f );
+	static float easeOutQuart( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeInOutQuart( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
 
 
-	static float easeInQuint( float t, float b, float c, float d = 1.0f  );
-	static float easeOutQuint( float t, float b, float c, float d = 1.0f  );
-	static float easeInOutQuint( float t, float b, float c, float d = 1.0f  );
+	static float easeInQuint( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeOutQuint( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeInOutQuint( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
 
-	static float easeInSine( float t, float b, float c, float d = 1.0f  );
-	static float easeOutSine( float t, float b, float c, float d  = 1.0f );
-	static float easeInOutSine( float t, float b, float c, float d = 1.0f  );
+	static float easeInSine( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeOutSine( float t, float b = 0.0f, float c = 1.0f, float d  = 1.0f );
+	static float easeInOutSine( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
 
-	static float easeInExpo( float t, float b, float c, float d = 1.0f  );
-	static float easeOutExpo( float t, float b, float c, float d = 1.0f  );
-	static float easeInOutExpo( float t, float b, float c, float d = 1.0f  );
+	static float easeInExpo( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeOutExpo( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeInOutExpo( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
 
-	static float easeInCircular( float t, float b, float c, float d = 1.0f  );
-	static float easeOutCircular( float t, float b, float c, float d = 1.0f  );
-	static float easeInOutCircular( float t, float b, float c, float d = 1.0f  );
+	static float easeInCircular( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeOutCircular( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
+	static float easeInOutCircular( float t, float b = 0.0f, float c = 1.0f, float d = 1.0f  );
 
 
 	/////////// ELASTIC EASING: exponentially decaying sine wave  //////////////
