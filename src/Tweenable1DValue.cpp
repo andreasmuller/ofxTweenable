@@ -77,12 +77,12 @@ void Tweenable1DValue::tweenValueTo( float _valueTarget, float _timeSecs,  Easin
 //
 void Tweenable1DValue::enableAutoTweenUpdate()
 {
-	ofAddListener(ofEvents.update, this, &Tweenable1DValue::_update);	
+	ofAddListener(ofEvents().update, this, &Tweenable1DValue::_update);
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
 void Tweenable1DValue::disableAutoTweenUpdate()
 {
-	ofRemoveListener(ofEvents.update, this, &Tweenable1DValue::_update);	
+	ofRemoveListener(ofEvents().update, this, &Tweenable1DValue::_update);
 }

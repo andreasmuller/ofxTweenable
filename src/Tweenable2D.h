@@ -49,7 +49,7 @@ class Tweenable2D : public virtual SpriteProperties2D
 						  	EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
 						    float _startDelay = 0.0f, bool _backWhenDone = false, bool _fireEventWhenDone = false );
 	
-		void tweenColorTo(	ofPoint* _targetCol,	float _timeSecs, 
+		void tweenColorTo(	ofFloatColor _targetCol,	float _timeSecs, 
 						    EasingEquations::EaseType _easeType = EasingEquations::EASE_LINEAR, 
 						    float _startDelay = 0.0f, bool _backWhenDone = false, bool _fireEventWhenDone = false );
 
@@ -66,19 +66,15 @@ class Tweenable2D : public virtual SpriteProperties2D
 		TweenProperties1D angleTweenProps;	
 		TweenProperties1D colorTweenProps;
 	
-		
-		//AColor startColor;
-		//AColor endColor;
-		ofPoint startColor;
-		ofPoint endColor;	
+		ofFloatColor startColor;
+		ofFloatColor endColor;
 	
-		//AColorInterpolator colorInterpolator;	
 		float colorTweeningVal;
 			
 		int eventID;
 	
 	private:
 		float getAngleDiff( float rot, float rotTarget);
-		void interpolateAlphaBlendingRGB( ofPoint* _startColor, ofPoint* _endColor, float _frac, ofPoint* _targetColor );
+		void interpolateAlphaBlendingRGB( ofFloatColor* _startColor, ofFloatColor* _endColor, float _frac, ofFloatColor* _targetColor );
 };
 

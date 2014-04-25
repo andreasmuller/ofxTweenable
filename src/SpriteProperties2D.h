@@ -28,8 +28,7 @@ class SpriteProperties2D
 	
 		float alpha;
 	
-		//AColor color;
-		ofPoint color;	
+		ofFloatColor color;
 };
 
 
