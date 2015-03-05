@@ -122,28 +122,6 @@ void LoopAnimatable2D::startPosAnimationLoop( ofPoint* _start, ofPoint* _end, fl
 	posAnimLoopProps.backWhenDone = false;	
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------
-//
-void LoopAnimatable2D::startAlphaAnimationLoop( float _start, float _end, float _timeSecs, EasingEquations::EaseType _easeType, EasingEquations::EaseType _easeTypeBack )
-{
-	alphaAnimLoopProps.startTime = timer.elapsedSec();
-	alphaAnimLoopProps.endTime = alphaAnimLoopProps.startTime + _timeSecs;
-	
-	alphaAnimLoopProps.tweenTime = _timeSecs;		
-	
-	alphaAnimLoopProps.easeType = _easeType;
-	alphaAnimLoopProps.easeTypeBack = _easeTypeBack;	
-	
-	alphaAnimLoopProps.startX = _start;
-	alphaAnimLoopProps.endX = _end;
-	
-	alphaAnimLoopProps.targetValRef = &alpha;
-	
-	alphaAnimLoopProps.active = true;
-	
-	alphaAnimLoopProps.backWhenDone = false;
-}
-
 
 // Stop the looping animation
 

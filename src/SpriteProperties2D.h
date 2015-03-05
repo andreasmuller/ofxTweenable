@@ -8,15 +8,12 @@
  */
 
 
-#ifndef _A_SPRITE_PROPERTIES_2D_H
-#define _A_SPRITE_PROPERTIES_2D_H
+#pragma once
 
 #include "ofMain.h"
-//#include "../Color/AColor.h"
 
 class SpriteProperties2D
 {
-		
 	public:
 		
 		ofPoint pos;
@@ -26,10 +23,5 @@ class SpriteProperties2D
 	
 		float angle;
 	
-		float alpha;
-	
 		ofFloatColor color;
 };
-
-
-#endif //_A_SPRITE_PROPERTIES_2D_H

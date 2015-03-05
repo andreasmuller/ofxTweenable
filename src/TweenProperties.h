@@ -110,7 +110,6 @@ class TweenProperties1D : public TweenProperties
 			else 
 			{
 				float tmpFrac = (_timeSecs - startTime) / (endTime - startTime);
-		
 				setVal( tmpFrac, easeType );
 			}
 			

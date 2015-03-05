@@ -1,6 +1,5 @@
 /*
  *  Tweenable2D.cpp
- *  JagermeisterApp
  *
  *  Created by Andreas Muller on 08/09/2009.
  *  Copyright 2009 Nanika. All rights reserved.
@@ -21,12 +20,9 @@ Tweenable2D::Tweenable2D()
 
 	angle = 0.0f;
 	
-	alpha = 1.0f;
-	
 	timer.start();
 	enableAutoTweenUpdate();
 }
-
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -82,25 +78,12 @@ void Tweenable2D::updateTweening()
 		}
 	}
 	
-	// Alpha
-	if( alphaTweenProps.active ) 
-	{
-		alphaTweenProps.update( tmpSec );
-	}
-	else 
-	{ 
-		if ( alphaTweenProps.backWhenDone )
-		{
-			tweenAlphaTo(alphaTweenProps.startX, alphaTweenProps.tweenTime, alphaTweenProps.easeType, false );
-		}
-	}
 
 	// Angle
 	if( angleTweenProps.active ) 
 	{
 		angleTweenProps.update( tmpSec );
-		//angle = AngleMath::wrapAngle180( angle ); 
-		if( angle > 180.0f ) { angle -= 360.0f; } else if ( angle < -180.0f ) { angle += 360.0f; }
+		angle = ofWrapDegrees( angle );
 	}
 	else 
 	{ 
@@ -115,22 +98,14 @@ void Tweenable2D::updateTweening()
 	{
 		colorTweenProps.update( tmpSec );
 		
-		//AColor tmpCol = colorInterpolator.interpolateAlphaBlendingRGB( colorTweeningVal );
-		//color.setRGB( tmpCol.rgb.red, tmpCol.rgb.green, tmpCol.rgb.blue );
-		
 		interpolateAlphaBlendingRGB( &startColor, &endColor, colorTweeningVal, &color );
-		color.a = alpha;
-		
-		//cout << color << endl;
-		
+		//color.a = alpha;		
+		//cout << "Updating color " << color << endl;
 	}
 	else 
 	{ 
 		if ( colorTweenProps.backWhenDone )
 		{
-			//AColor tmpCol( endColor.rgb.red, endColor.rgb.green, endColor.rgb.blue );
-			//tweenColorTo( &tmpCol,	colorTweenProps.tweenTime, colorTweenProps.easeType, false );
-			
 			tweenColorTo( endColor, colorTweenProps.tweenTime, colorTweenProps.easeType, false );
 		}
 	}		
@@ -197,33 +172,6 @@ void Tweenable2D::tweenSizeTo( float _xTarget, float _yTarget, float _timeSecs, 
 	sizeTweenProps.fireEventWhenDone = _fireEventWhenDone;		
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------
-//
-void Tweenable2D::tweenAlphaTo( float _alphaTarget, float _timeSecs,  EasingEquations::EaseType _easeType, float _startDelay, bool _backWhenDone, bool _fireEventWhenDone )
-{
-	//cout << " Tweenable2D::tweenAlphaTo  _alphaTarget: " << _alphaTarget << "  _timeSecs: " << _timeSecs << "  _easeType: " << _easeType << endl; 
-
-	alphaTweenProps.eventID = eventID;
-	alphaTweenProps.animType = TweenDoneEventArgs::ANIM_ALPHA;	
-	
-	alphaTweenProps.startTime = timer.elapsedSec() + _startDelay;
-	alphaTweenProps.endTime = alphaTweenProps.startTime + _timeSecs;
-	
-	alphaTweenProps.tweenTime = _timeSecs;		
-	
-	alphaTweenProps.easeType = _easeType;
-	
-	alphaTweenProps.startX = alpha;
-	alphaTweenProps.endX = _alphaTarget;
-	
-	alphaTweenProps.targetValRef = &alpha;
-	
-	alphaTweenProps.active = true;
-	
-	alphaTweenProps.backWhenDone = _backWhenDone;
-	
-	alphaTweenProps.fireEventWhenDone = _fireEventWhenDone;		
-}
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
@@ -243,7 +191,6 @@ void Tweenable2D::tweenAngleTo( float _angleTarget, float _timeSecs, EasingEquat
 	
 	angleTweenProps.startX = angle;
 	angleTweenProps.endX = angle + tmpAngDiff;
-	//angleTweenProps.endX = _angleTarget;	
 	
 	angleTweenProps.targetValRef = &angle;
 	
@@ -254,19 +201,17 @@ void Tweenable2D::tweenAngleTo( float _angleTarget, float _timeSecs, EasingEquat
 	angleTweenProps.fireEventWhenDone = _fireEventWhenDone;	
 }
 
-
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
 void Tweenable2D::tweenColorTo(	ofFloatColor _targetCol, float _timeSecs, EasingEquations::EaseType _easeType, float _startDelay, bool _backWhenDone, bool _fireEventWhenDone )
 {
 	colorTweenProps.eventID = eventID;
 	colorTweenProps.animType = TweenDoneEventArgs::ANIM_COLOR;
-	
-	//startColor.setRGB( color.rgb.red, color.rgb.green, color.rgb.blue );
-	//endColor.setRGB( _targetCol->rgb.red, _targetCol->rgb.green, _targetCol->rgb.blue );	
-	
-	startColor = color;;
-	endColor = _targetCol; //.set( _targetCol.r, _targetCol.g, _targetCol->b );
+
+	//cout << "Tween from " << color << " to " << _targetCol << endl;
+
+	startColor = color;
+	endColor = _targetCol; 
 	
 	colorTweeningVal = 0.0f;
 	
@@ -287,9 +232,6 @@ void Tweenable2D::tweenColorTo(	ofFloatColor _targetCol, float _timeSecs, Easing
 	colorTweenProps.backWhenDone = _backWhenDone;
 	
 	colorTweenProps.fireEventWhenDone = _fireEventWhenDone;	
-	
-	//colorInterpolator.setStart( &startColor );
-	//colorInterpolator.setEnd( &endColor );	
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------
@@ -299,31 +241,16 @@ void Tweenable2D::interpolateAlphaBlendingRGB( ofFloatColor* _startColor, ofFloa
 	_targetColor->r = (_endColor->r * _frac) + (_startColor->r * (1.0f-_frac) );
 	_targetColor->g = (_endColor->g * _frac) + (_startColor->g * (1.0f-_frac) );
 	_targetColor->b = (_endColor->b * _frac) + (_startColor->b * (1.0f-_frac) );
+	_targetColor->a = ofLerp( _startColor->a, _endColor->a, _frac );
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------
 //
 float Tweenable2D::getAngleDiff( float rot, float rotTarget)
 {
-	float tmp1 = fmodf( ((360.0f - rot) + rotTarget) , 360.0f) ;
-	float tmp2 = (rot - rotTarget);
-	
-	//printf( " rot: %f rotTarget: %f \n", rot, rotTarget );
-	
-	if (tmp2 < 0.0f ) 
-	{
-		tmp2 = 360.0f - (-tmp2);
-	}
-	
-	//printf( " tmp1: %f tmp2: %f \n", tmp1, tmp2 );
-	
-	if (tmp1 < tmp2 ) 
-	{
-		return tmp1;
-	} 
-	else 
-	{
-		return -tmp2;
-	}	
+	float tmp1 = fmodf( ((360.0f - rot) + rotTarget), 360.0f);
+	float tmp2 = (rot - rotTarget);	
+	if (tmp2 < 0.0f )  { tmp2 = 360.0f - (-tmp2); }
+	if (tmp1 < tmp2 ) { return tmp1; } else { return -tmp2; }	
 }
 
