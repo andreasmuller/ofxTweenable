@@ -99,14 +99,12 @@ void Tweenable2D::updateTweening()
 		colorTweenProps.update( tmpSec );
 		
 		interpolateAlphaBlendingRGB( &startColor, &endColor, colorTweeningVal, &color );
-		//color.a = alpha;		
-		//cout << "Updating color " << color << endl;
 	}
 	else 
 	{ 
 		if ( colorTweenProps.backWhenDone )
 		{
-			tweenColorTo( endColor, colorTweenProps.tweenTime, colorTweenProps.easeType, false );
+			tweenColorTo( startColor, colorTweenProps.tweenTime, colorTweenProps.easeType, false );
 		}
 	}		
 	
