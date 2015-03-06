@@ -9,9 +9,7 @@
 #pragma once
 
 #include "TweenProperties.h"
-
 #include "TweeningTimer.h"
-
 #include "EasingEquations.h"
 
 //-------------------------------------------------------------------------------------------------------------------------------------
